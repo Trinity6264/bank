@@ -3,6 +3,7 @@ import 'package:bank/common/constant.dart';
 import 'package:bank/common/custom_rounded_button.dart';
 import 'package:bank/login/components/login_email_input.dart';
 import 'package:bank/login/components/login_password_input.dart';
+import 'package:bank/routes/bank_auto_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,6 +13,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size(:height) = MediaQuery.sizeOf(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -35,7 +38,7 @@ class LoginPage extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: Constants.getMediumPaddingSize(context),
-              vertical: MediaQuery.sizeOf(context).height / 30,
+              vertical: height / 30,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -49,15 +52,17 @@ class LoginPage extends StatelessWidget {
                       SvgPicture.asset('assets/logo.svg'),
                       Padding(
                         padding: EdgeInsets.only(
-                          top: MediaQuery.sizeOf(context).height / 20,
-                          bottom: MediaQuery.sizeOf(context).height / 15,
+                          top: height / 20,
+                          bottom: height / 15,
                         ),
                         child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             LoginEmailInput(),
-                            LoginPasswordInput(),
+                            
+                             LoginPasswordInput(),
+                            
                           ],
                         ),
                       ),
@@ -69,7 +74,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushRoute(const ForgotPasswordPage());
+                  },
                   child: Text(
                     "Forgot Password?",
                     style: TextStyle(
