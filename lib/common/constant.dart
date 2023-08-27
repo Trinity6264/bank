@@ -14,6 +14,7 @@ class Constants {
 // ? fonts,padding sizes etc.
   static const smallPaddingSize = 8.0;
   static const mediumPaddingSize = 16.0;
+  static const navbarIconSize = 32.0;
 
   static double getSmallPaddingSize(BuildContext context) {
     final Size(:height) = MediaQuery.of(context).size;
@@ -44,6 +45,20 @@ class Constants {
     return Constants.mediumPaddingSize;
   }
 
+  static double getNavbarIconSize(BuildContext context) {
+    final Size(:height) = MediaQuery.of(context).size;
+    if (height > 1080) {
+      return Constants.navbarIconSize * 1.3;
+    } else if (height > 720) {
+      return Constants.navbarIconSize * 1.2;
+    } else if (height > 640) {
+      return Constants.navbarIconSize * 1.1;
+    } else if (height > 360) {
+      return Constants.navbarIconSize * 1.0;
+    }
+    return Constants.navbarIconSize;
+  }
+
   static List<BottomNavigationBarItem> getDashboardItem(BuildContext context) {
     return <BottomNavigationBarItem>[
       BottomNavigationBarItem(
@@ -53,8 +68,8 @@ class Constants {
             borderRadius: BorderRadius.circular(12),
           ),
           child: SvgPicture.asset(
-            "assets/images/home.svg",
-            width: Constants.getNavBarIconSize(context),
+            "assets/home.svg",
+            width: Constants.getNavbarIconSize(context),
           ),
         ),
         label: "Home",
@@ -65,8 +80,8 @@ class Constants {
             color: const Color(0xffe0ecf2),
           ),
           child: SvgPicture.asset(
-            "assets/images/active_home_icon.svg",
-            width: Constants.getNavBarIconSize(context),
+            "assets/home.svg",
+            width: Constants.getNavbarIconSize(context),
           ),
         ),
       ),
@@ -77,8 +92,8 @@ class Constants {
             borderRadius: BorderRadius.circular(12),
           ),
           child: SvgPicture.asset(
-            "assets/images/clock.svg",
-            width: Constants.getNavBarIconSize(context),
+            "assets/transaction-minus.svg",
+            width: Constants.getNavbarIconSize(context),
           ),
         ),
         label: "Transactions",
@@ -89,12 +104,11 @@ class Constants {
             color: const Color(0xffe0ecf2),
           ),
           child: SvgPicture.asset(
-            "assets/images/active_clock.svg",
-            width: Constants.getNavBarIconSize(context),
+            "assets/transaction-minus.svg",
+            width: Constants.getNavbarIconSize(context),
           ),
         ),
       ),
-      
     ];
   }
 }
