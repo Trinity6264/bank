@@ -12,9 +12,47 @@ class Constants {
   static const blackTextColor = Color(0xff212121);
 
 // ? fonts,padding sizes etc.
+
+//? Padding
   static const smallPaddingSize = 8.0;
   static const mediumPaddingSize = 16.0;
   static const navbarIconSize = 32.0;
+
+// ? Radius
+  static const mediumRadiusSize = 16.0;
+
+  // ? Body font size
+  static const bodyFontSize = 14.0;
+
+  static double getBodyFontSize(BuildContext context) {
+    final Size(:height) = MediaQuery.of(context).size;
+    if (height > 1080) {
+      return Constants.bodyFontSize * 1.3;
+    } else if (height > 720) {
+      return Constants.bodyFontSize * 1.2;
+    } else if (height > 640) {
+      return Constants.bodyFontSize * 1.1;
+    } else if (height > 360) {
+      return Constants.bodyFontSize * 1.0;
+    }
+
+    return Constants.bodyFontSize;
+  }
+
+  static double getMediumRadiusSize(BuildContext context) {
+    final Size(:height) = MediaQuery.of(context).size;
+    if (height > 1080) {
+      return Constants.mediumRadiusSize * 1.2;
+    } else if (height > 720) {
+      return Constants.mediumRadiusSize * 1.2;
+    } else if (height > 640) {
+      return Constants.mediumRadiusSize * 1.1;
+    } else if (height > 360) {
+      return Constants.mediumRadiusSize * 1.0;
+    }
+
+    return Constants.mediumRadiusSize;
+  }
 
   static double getSmallPaddingSize(BuildContext context) {
     final Size(:height) = MediaQuery.of(context).size;
