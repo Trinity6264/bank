@@ -23,6 +23,7 @@ class Constants {
 
   // ? Body font size
   static const bodyFontSize = 14.0;
+  static const textButtonFontSize = 14.0;
 
   static double getBodyFontSize(BuildContext context) {
     final Size(:height) = MediaQuery.of(context).size;
@@ -37,6 +38,20 @@ class Constants {
     }
 
     return Constants.bodyFontSize;
+  }
+  static double getTextButtonFontSize(BuildContext context) {
+    final Size(:height) = MediaQuery.of(context).size;
+    if (height > 1080) {
+      return Constants.textButtonFontSize * 1.3;
+    } else if (height > 720) {
+      return Constants.textButtonFontSize * 1.2;
+    } else if (height > 640) {
+      return Constants.textButtonFontSize * 1.1;
+    } else if (height > 360) {
+      return Constants.textButtonFontSize * 1.0;
+    }
+
+    return Constants.textButtonFontSize;
   }
 
   static double getMediumRadiusSize(BuildContext context) {
