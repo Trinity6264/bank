@@ -3,9 +3,13 @@ import 'package:bank/bank_observer.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = const BankObserver();
-  runApp(const BankBlocs());
+  runApp(Theme(
+    data: ThemeData(
+      fontFamily: "OpenSans"
+    ),
+    child: const BankBlocs(),
+  ));
 }

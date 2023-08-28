@@ -60,9 +60,7 @@ class LoginPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             LoginEmailInput(),
-                            
-                             LoginPasswordInput(),
-                            
+                            LoginPasswordInput(),
                           ],
                         ),
                       ),
