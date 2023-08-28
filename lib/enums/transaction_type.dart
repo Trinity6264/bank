@@ -1,4 +1,3 @@
-import 'package:bank/common/constant.dart';
 import 'package:flutter/material.dart';
 
 typedef TransactionParams = ({
@@ -11,14 +10,14 @@ enum TransactionType {
   D(
     (
       title: "Debit",
-      color: Constants.primaryColor,
+      color: Color(0xff022E64),
       icon: "assets/money-send.svg",
     ),
   ),
   C(
     (
       title: "Credit",
-      color: Constants.secondaryColor,
+      color: Color(0xffE6B014),
       icon: "assets/money-recive.svg",
     ),
   );

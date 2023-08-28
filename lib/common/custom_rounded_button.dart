@@ -16,12 +16,12 @@ class CustomRoundedButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.all(
-          Constants.getMediumPaddingSize(context),
+          context.getMediumPaddingSize(),
         ),
-        backgroundColor: Constants.secondaryColor,
+        backgroundColor: context.secondaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            Constants.getMediumRadiusSize(context),
+            context.getMediumRadiusSize(),
           ),
         ),
       ),
@@ -31,7 +31,7 @@ class CustomRoundedButton extends StatelessWidget {
           color: const Color(0xff212121),
           fontWeight: FontWeight.w700,
           letterSpacing: 0.2,
-          fontSize: Constants.getBodyFontSize(context),
+          fontSize: context.getBodyFontSize(),
         ),
       ),
     );

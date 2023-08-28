@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.symmetric(
-              horizontal: Constants.getMediumPaddingSize(context),
+              horizontal: context.getMediumPaddingSize(),
               vertical: height / 30,
             ),
             child: Column(
@@ -66,7 +66,9 @@ class LoginPage extends StatelessWidget {
                       ),
                       CustomRoundedButton(
                         text: "Login",
-                        onPressed: () {},
+                        onPressed: () {
+                          context.replaceRoute(const DashBoardPage());
+                        },
                       ),
                     ],
                   ),
@@ -78,7 +80,7 @@ class LoginPage extends StatelessWidget {
                   child: Text(
                     "Forgot Password?",
                     style: TextStyle(
-                      fontSize: Constants.getTextButtonFontSize(context),
+                      fontSize: context.getTextButtonFontSize(),
                       color: const Color(0xffF5F5F5),
                       fontWeight: FontWeight.w400,
                       letterSpacing: 0.175,

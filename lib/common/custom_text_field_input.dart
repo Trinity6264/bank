@@ -20,7 +20,7 @@ class CustomTextFieldInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        bottom: Constants.getMediumPaddingSize(context),
+        bottom: context.getMediumPaddingSize(),
       ),
       child: TextFormField(
         onChanged: onChnaged,
@@ -34,31 +34,31 @@ class CustomTextFieldInput extends StatelessWidget {
           hintStyle: TextStyle(
             color: const Color(0xff212121).withOpacity(0.6),
             fontWeight: FontWeight.w400,
-            fontSize: Constants.getBodyFontSize(context),
+            fontSize: context.getBodyFontSize(),
             letterSpacing: 0.2,
           ),
           contentPadding: EdgeInsets.all(
-            Constants.getMediumPaddingSize(context),
+            context.getMediumPaddingSize(),
           ),
           fillColor: const Color(0xffF5F5F5),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
-              Constants.getMediumRadiusSize(context),
+              context.getMediumRadiusSize(),
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
-              Constants.getMediumRadiusSize(context),
+              context.getMediumRadiusSize(),
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
-              Constants.getMediumRadiusSize(context),
+              context.getMediumRadiusSize(),
             ),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
-              Constants.getMediumRadiusSize(context),
+              context.getMediumRadiusSize(),
             ),
           ),
         ),

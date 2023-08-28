@@ -35,7 +35,7 @@ class ForgotPasswordPage extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.symmetric(
-              horizontal: Constants.getMediumPaddingSize(context),
+              horizontal: context.getMediumPaddingSize(),
               vertical: height / 30,
             ),
             child: Column(
