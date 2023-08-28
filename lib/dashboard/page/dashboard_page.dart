@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bank/common/constant.dart';
+import 'package:bank/dashboard/components/custom_bottom_navbar.dart';
+import 'package:bank/dashboard/components/user_profile_header.dart';
 import 'package:bank/routes/bank_auto_router.gr.dart';
 import 'package:flutter/material.dart';
 
@@ -10,18 +12,33 @@ class DashBoardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+      appBarBuilder: (context, tabsRouter) {
+        return PreferredSize(
+          preferredSize: Size.fromHeight(
+            MediaQuery.sizeOf(context).height / 9,
+          ),
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            color: context.primaryColor,
+            padding: EdgeInsets.only(
+              top: MediaQuery.sizeOf(context).height / 10,
+              left: context.getMediumPaddingSize(),
+              bottom: context.getMediumPaddingSize(),
+              right: context.getMediumPaddingSize(),
+            ),
+            child: const UserProfileHeader(),
+          ),
+        );
+      },
       routes: const [
         HomePage(),
         TransactionPage(),
       ],
-      animationCurve: Curves.easeIn,
-      animationDuration: const Duration(milliseconds: 500),
+      animationCurve: Curves.easeInToLinear,
+      animationDuration: const Duration(milliseconds: 300),
       bottomNavigationBuilder: (context, tabsRouter) {
-        return Container(
-          width: double.infinity,
-          height: context.getNavbarHeightSize(),
-          color: Colors.amber,
-        );
+        return CustomBottomNavbar(tabsRouter: tabsRouter);
       },
     );
   }
