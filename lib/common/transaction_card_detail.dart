@@ -1,16 +1,26 @@
 import 'package:bank/common/bottom_card_info.dart';
 import 'package:bank/common/constant.dart';
+import 'package:bank/enums/transaction_type.dart';
+import 'package:bank/transactions/model/transaction_model.dart';
 import 'package:flutter/material.dart';
 
 class TransactionCardDetail extends StatelessWidget {
   const TransactionCardDetail({
-    super.key,
     required this.controller,
+    required this.transactionModel,
+    super.key,
   });
   final ScrollController controller;
+  final TransactionModel transactionModel;
 
   @override
   Widget build(BuildContext context) {
+    final TransactionModel(
+      :amount,
+      :date,
+      :narration,
+      :type,
+    ) = transactionModel;
     return Container(
       height: double.infinity,
       decoration: const BoxDecoration(
@@ -70,22 +80,22 @@ class TransactionCardDetail extends StatelessWidget {
                   ),
                   child: const Divider(thickness: 1.0),
                 ),
-                const BottomCardInfo(
+                BottomCardInfo(
                   cardInfoParam: (
                     key: "Transaction Date",
-                    value: "01-02-2021",
+                    value: date,
                   ),
                 ),
-                const BottomCardInfo(
+                BottomCardInfo(
                   cardInfoParam: (
                     key: "Transaction Direction",
-                    value: "Credit",
+                    value: type.title,
                   ),
                 ),
-                const BottomCardInfo(
+                BottomCardInfo(
                   cardInfoParam: (
                     key: "Transaction Narration",
-                    value: "Deposit",
+                    value: narration,
                   ),
                 ),
                 Padding(

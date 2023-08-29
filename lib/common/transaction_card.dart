@@ -2,16 +2,20 @@ import 'package:bank/common/constant.dart';
 import 'package:bank/common/currency_symbol_cycle.dart';
 import 'package:bank/common/transaction_card_detail.dart';
 import 'package:bank/enums/transaction_type.dart';
+import 'package:bank/transactions/model/transaction_model.dart';
 import 'package:flutter/material.dart';
 
 class TransactionCard extends StatelessWidget {
   const TransactionCard({
-    required this.index,
+    required this.transactionModel,
     super.key,
   });
-  final int index;
+  final TransactionModel transactionModel;
 
-  void _showDraggableBottomSheet(BuildContext context) {
+  void _showDraggableBottomSheet(
+    BuildContext context,
+    TransactionModel transactionModel,
+  ) {
     showModalBottomSheet<void>(
       context: context,
       backgroundColor: Colors.transparent,
@@ -22,7 +26,10 @@ class TransactionCard extends StatelessWidget {
           maxChildSize: 0.99,
           expand: false,
           builder: (BuildContext context, ScrollController scrollController) {
-            return TransactionCardDetail(controller: scrollController);
+            return TransactionCardDetail(
+              controller: scrollController,
+              transactionModel: transactionModel,
+            );
           },
         );
       },
@@ -31,19 +38,18 @@ class TransactionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TransactionModel(:amount, :date, :narration, :type) =
+        transactionModel;
     return GestureDetector(
       onTap: () {
-        _showDraggableBottomSheet(context);
+        _showDraggableBottomSheet(context, transactionModel);
       },
       child: Container(
         padding: EdgeInsets.all(context.getMediumPaddingSize()),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CurrencyCircleSymbol(
-              transactionType:
-                  index % 2 == 0 ? TransactionType.C : TransactionType.D,
-            ),
+            CurrencyCircleSymbol(transactionType: type),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +58,7 @@ class TransactionCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "GHC 1,500.00",
+                        "GHC $amount",
                         style: TextStyle(
                           color: const Color(0xff212121),
                           fontWeight: FontWeight.w700,
@@ -68,18 +74,12 @@ class TransactionCard extends StatelessWidget {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5.26),
-                          color: index % 2 == 0
-                              ? TransactionType.C.bgColor
-                              : TransactionType.D.bgColor,
+                          color: type.bgColor,
                         ),
                         child: Text(
-                          index % 2 == 0
-                              ? TransactionType.C.title
-                              : TransactionType.D.title,
+                          type.title,
                           style: TextStyle(
-                            color: index % 2 == 0
-                                ? TransactionType.C.color
-                                : TransactionType.D.color,
+                            color: type.color,
                           ),
                         ),
                       ),
@@ -95,16 +95,14 @@ class TransactionCard extends StatelessWidget {
                         Text(
                           "#",
                           style: TextStyle(
-                            color: index % 2 == 0
-                                ? TransactionType.C.color
-                                : TransactionType.D.color,
+                            color: type.color,
                             letterSpacing: 0.175,
                             fontWeight: FontWeight.w700,
                             fontSize: context.getBodySmallFontSize,
                           ),
                         ),
                         Text(
-                          "Inflow",
+                          narration,
                           style: TextStyle(
                             color: const Color(0xff616161),
                             letterSpacing: 0.175,
@@ -122,7 +120,7 @@ class TransactionCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "01-02-2021",
+                  date,
                   style: TextStyle(
                     fontSize: context.getBodySmallFontSize,
                     fontWeight: FontWeight.w400,

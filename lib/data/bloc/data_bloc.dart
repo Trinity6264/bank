@@ -20,9 +20,13 @@ class DataBloc extends Bloc<DataEvent, DataState> {
   ) async {
     try {
       final resp = await repository.loadJsonData();
-      resp.when(
-        (data) => emit(state.copyWith(data: data)),
-        (error) => logger.e("Something happend"),
+
+      return resp.when(
+        (data) {
+          logger.d("Data ======>$data");
+          return emit(state.copyWith(data: data));
+        },
+        (_) => logger.e("Something happend"),
       );
     } catch (e) {
       logger.e(e);

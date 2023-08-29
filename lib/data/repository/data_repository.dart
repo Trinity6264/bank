@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:bank/bank_observer.dart';
 import 'package:bank/data/model/data_model.dart';
-import 'package:flutter/services.dart'; // Import services for rootBundle
+import 'package:flutter/services.dart' show rootBundle; 
 
 import 'package:multiple_result/multiple_result.dart';
 
@@ -14,7 +14,7 @@ class DataRepository {
     final jsonData = json.decode(jsonFile);
 
     final data = DataModel.fromJson(jsonData);
-    logger.i(data);
+    // logger.i(data);
     return Result.success(data);
   }
 }
