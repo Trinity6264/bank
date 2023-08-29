@@ -8,8 +8,9 @@ class BankAutoRouter extends $BankAutoRouter {
 
   @override
   final routes = <AutoRoute>[
-    AutoRoute(page: ProfilePage.page, initial: true),
+    AutoRoute(page: ResetPasswordPage.page, initial: true),
     AutoRoute(page: LoginPage.page, ),
+    AutoRoute(page: ProfilePage.page),
     AutoRoute(page: ForgotPasswordPage.page),
     AutoRoute(
       page: DashBoardPage.page,
