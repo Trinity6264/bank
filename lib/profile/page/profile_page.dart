@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bank/common/constant.dart';
 import 'package:bank/common/custom_back_button.dart';
-import 'package:bank/profile/components/account_settings_widget.dart';
+import 'package:bank/profile/components/account_settings.dart';
+import 'package:bank/profile/components/profile_info.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -52,14 +53,86 @@ class ProfilePage extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      const Expanded(
-                        child: Row(),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: context.getSmallPaddingSize,
+                            horizontal: context.getSmallPaddingSize,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  bottom: context.getSmallPaddingSize,
+                                ),
+                                child: const Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    AccountInfo(
+                                      accountInfoParams: (
+                                        title: "FIRST NAME",
+                                        name: "JOHN",
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    AccountInfo(
+                                      accountInfoParams: (
+                                        title: "OTHER NAMES",
+                                        name: "JIMOH",
+                                      ),
+                                    ),
+                                    Spacer(),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  bottom: context.getSmallPaddingSize,
+                                ),
+                                child: const Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    AccountInfo(
+                                      accountInfoParams: (
+                                        title: "GENDER",
+                                        name: "MALE",
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    AccountInfo(
+                                      accountInfoParams: (
+                                        title: "TITLE",
+                                        name: "MR",
+                                      ),
+                                    ),
+                                    Spacer(),
+                                  ],
+                                ),
+                              ),
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  AccountInfo(
+                                    accountInfoParams: (
+                                      title: "ID",
+                                      name: "23399922",
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ),
                 Container(
-                  color: const Color(0xE1E6F052).withOpacity(0.32),
+                  color: const Color(0xFFE1E6F0).withOpacity(0.32),
                   padding: EdgeInsets.symmetric(
                     horizontal: context.getMediumPaddingSize(),
                     vertical: context.getSmallPaddingSize,
@@ -73,14 +146,14 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const AccountSettingsWidget(
+                const AccountSettings(
                   params: (
                     iconPath: "assets/lock.svg",
                     title: "Change Account Password",
                     isHavingIcon: true,
                   ),
                 ),
-                const AccountSettingsWidget(
+                const AccountSettings(
                   params: (
                     iconPath: "assets/logout.svg",
                     title: "Logout",
@@ -88,7 +161,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  color: const Color(0xE1E6F052).withOpacity(0.32),
+                  color: const Color(0xFFE1E6F0).withOpacity(0.32),
                   padding: EdgeInsets.symmetric(
                     horizontal: context.getMediumPaddingSize(),
                     vertical: context.getSmallPaddingSize,
@@ -102,14 +175,14 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const AccountSettingsWidget(
+                const AccountSettings(
                   params: (
                     iconPath: "assets/logout.svg",
                     title: "Terms and Conditions",
                     isHavingIcon: false,
                   ),
                 ),
-                const AccountSettingsWidget(
+                const AccountSettings(
                   params: (
                     iconPath: "assets/logout.svg",
                     title: "Privacy Policy",
@@ -120,7 +193,7 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           Divider(
-            color: const Color(0xe1e6f099).withOpacity(0.6),
+            color: const Color(0xFFE1E6F0).withOpacity(0.32),
             thickness: 1.5,
           ),
           Container(

@@ -8,8 +8,8 @@ typedef AccountSettingsParams = ({
   bool isHavingIcon,
 });
 
-class AccountSettingsWidget extends StatelessWidget {
-  const AccountSettingsWidget({
+class AccountSettings extends StatelessWidget {
+  const AccountSettings({
     required this.params,
     super.key,
   });
@@ -27,10 +27,11 @@ class AccountSettingsWidget extends StatelessWidget {
           ),
           child: Row(
             children: [
-            isHavingIcon ?  SvgPicture.asset(iconPath):SizedBox.shrink(),
+              if (isHavingIcon) ...[SvgPicture.asset(iconPath)],
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: context.getMediumPaddingSize(),
+                  horizontal:
+                      !isHavingIcon ? 0 : context.getMediumPaddingSize(),
                 ),
                 child: Text(
                   title,
@@ -46,7 +47,7 @@ class AccountSettingsWidget extends StatelessWidget {
           ),
         ),
         Divider(
-          color: const Color(0xe1e6f099).withOpacity(0.6),
+          color: const Color(0xFFE1E6F0).withOpacity(0.32),
           thickness: 1.5,
         ),
       ],
