@@ -6,6 +6,7 @@ import 'package:bank/reset_password/components/confirm_new_password_input.dart';
 import 'package:bank/reset_password/components/new_password_input.dart';
 import 'package:bank/reset_password/components/old_password_input.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
 class ResetPasswordPage extends StatelessWidget {
@@ -44,10 +45,14 @@ class ResetPasswordPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomBackButton(),
+                    const CustomBackButton(),
+                    SvgPicture.asset(
+                      "assets/logo.svg",
+                      width: MediaQuery.sizeOf(context).height / 10,
+                    ),
                   ],
                 ),
                 Expanded(

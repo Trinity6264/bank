@@ -5,6 +5,7 @@ import 'package:bank/profile/components/account_settings.dart';
 import 'package:bank/profile/components/profile_info.dart';
 import 'package:bank/routes/bank_auto_router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget {
@@ -28,10 +29,14 @@ class ProfilePage extends StatelessWidget {
             bottom: context.getMediumPaddingSize(),
             right: context.getMediumPaddingSize(),
           ),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CustomBackButton(),
+              const CustomBackButton(),
+              SvgPicture.asset(
+                "assets/logo.svg",
+                width: MediaQuery.sizeOf(context).height / 10,
+              ),
             ],
           ),
         ),
