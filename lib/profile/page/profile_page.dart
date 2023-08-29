@@ -3,6 +3,7 @@ import 'package:bank/common/constant.dart';
 import 'package:bank/common/custom_back_button.dart';
 import 'package:bank/profile/components/account_settings.dart';
 import 'package:bank/profile/components/profile_info.dart';
+import 'package:bank/routes/bank_auto_router.gr.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -146,18 +147,22 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const AccountSettings(
+                AccountSettings(
                   params: (
                     iconPath: "assets/lock.svg",
                     title: "Change Account Password",
                     isHavingIcon: true,
+                    onPressed: () {
+                      context.pushRoute(const ResetPasswordPage());
+                    },
                   ),
                 ),
-                const AccountSettings(
+                AccountSettings(
                   params: (
                     iconPath: "assets/logout.svg",
                     title: "Logout",
                     isHavingIcon: true,
+                    onPressed: () {},
                   ),
                 ),
                 Container(
@@ -175,18 +180,20 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const AccountSettings(
+                AccountSettings(
                   params: (
                     iconPath: "assets/logout.svg",
                     title: "Terms and Conditions",
                     isHavingIcon: false,
+                    onPressed: () {},
                   ),
                 ),
-                const AccountSettings(
+                AccountSettings(
                   params: (
                     iconPath: "assets/logout.svg",
                     title: "Privacy Policy",
                     isHavingIcon: false,
+                    onPressed: () {},
                   ),
                 ),
               ],

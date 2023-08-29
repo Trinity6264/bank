@@ -3,7 +3,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bank/common/constant.dart';
 import 'package:bank/common/transaction_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -13,13 +12,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
+        Image.asset(
+          "assets/frame.png",
           width: double.infinity,
+          fit: BoxFit.cover,
           height: MediaQuery.sizeOf(context).height / 5,
-          child: SvgPicture.asset(
-            "assets/frame.svg",
-            fit: BoxFit.cover,
-          ),
         ),
         Container(
           width: double.infinity,

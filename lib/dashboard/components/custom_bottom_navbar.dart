@@ -33,7 +33,9 @@ class CustomBottomNavbar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      "assets/home.svg",
+                      tabsRouter.activeIndex == 0
+                          ? "assets/home.svg"
+                          : "assets/home_active.svg",
                       width: context.getNavbarIconSize(),
                     ),
                     Padding(
@@ -72,7 +74,9 @@ class CustomBottomNavbar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
-                        "assets/transaction-minus.svg",
+                        tabsRouter.activeIndex == 1
+                            ? "assets/transaction-minus_active.svg"
+                            : "assets/transaction-minus.svg",
                         width: context.getNavbarIconSize(),
                       ),
                       Padding(

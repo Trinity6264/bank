@@ -6,6 +6,7 @@ typedef AccountSettingsParams = ({
   String iconPath,
   String title,
   bool isHavingIcon,
+  void Function()? onPressed,
 });
 
 class AccountSettings extends StatelessWidget {
@@ -17,33 +18,36 @@ class AccountSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (:iconPath, :title, :isHavingIcon) = params;
+    final (:iconPath, :title, :isHavingIcon,:onPressed) = params;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Container(
-          padding: EdgeInsets.all(
-            context.getMediumPaddingSize(),
-          ),
-          child: Row(
-            children: [
-              if (isHavingIcon) ...[SvgPicture.asset(iconPath)],
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal:
-                      !isHavingIcon ? 0 : context.getMediumPaddingSize(),
-                ),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    color: const Color(0xff001530),
-                    fontWeight: FontWeight.w400,
-                    fontSize: context.getBodyFontSize(),
-                    letterSpacing: 0.175,
+        GestureDetector(
+          onTap: onPressed,
+          child: Container(
+            padding: EdgeInsets.all(
+              context.getMediumPaddingSize(),
+            ),
+            child: Row(
+              children: [
+                if (isHavingIcon) ...[SvgPicture.asset(iconPath)],
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal:
+                        !isHavingIcon ? 0 : context.getMediumPaddingSize(),
+                  ),
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      color: const Color(0xff001530),
+                      fontWeight: FontWeight.w400,
+                      fontSize: context.getBodyFontSize(),
+                      letterSpacing: 0.175,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Divider(

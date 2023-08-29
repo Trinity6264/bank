@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bank/routes/custom_fade_route.dart';
 
 import 'bank_auto_router.gr.dart';
 
@@ -8,15 +9,22 @@ class BankAutoRouter extends $BankAutoRouter {
 
   @override
   final routes = <AutoRoute>[
-    AutoRoute(page: ResetPasswordPage.page, initial: true),
-    AutoRoute(page: LoginPage.page, ),
-    AutoRoute(page: ProfilePage.page),
+    CustomFadeRoute(page: ResetPasswordPage.page),
+    AutoRoute(page: LoginPage.page, initial: true),
+    CustomFadeRoute(page: ProfilePage.page),
     AutoRoute(page: ForgotPasswordPage.page),
-    AutoRoute(
+    CustomFadeRoute(
       page: DashBoardPage.page,
       children: [
         AutoRoute(page: HomePage.page, initial: true),
-        AutoRoute(page: TransactionPage.page),
+        AutoRoute(
+          page: TransactionPage.page,
+          children: [
+            AutoRoute(page: AllPage.page, initial: true),
+            CustomFadeRoute(page: DebitPage.page),
+            CustomFadeRoute(page: CreditPage.page),
+          ],
+        ),
       ],
     ),
   ];

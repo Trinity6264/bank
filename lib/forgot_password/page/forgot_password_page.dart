@@ -1,9 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bank/common/constant.dart';
+import 'package:bank/common/custom_back_button.dart';
 import 'package:bank/common/custom_rounded_button.dart';
 import 'package:bank/forgot_password/components/confirmed_password_input.dart';
 import 'package:bank/forgot_password/components/password_input.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
 class ForgotPasswordPage extends StatelessWidget {
@@ -36,12 +38,22 @@ class ForgotPasswordPage extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: context.getMediumPaddingSize(),
-              vertical: height / 30,
+              vertical: height / 10,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const CustomBackButton(),
+                    SvgPicture.asset(
+                      "assets/logo.svg",
+                      width: MediaQuery.sizeOf(context).height / 12,
+                    ),
+                  ],
+                ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
