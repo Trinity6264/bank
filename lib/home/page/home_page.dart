@@ -12,11 +12,70 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
-          "assets/frame.png",
+        SizedBox(
           width: double.infinity,
-          fit: BoxFit.cover,
           height: MediaQuery.sizeOf(context).height / 5,
+          child: Stack(
+            children: [
+              Image.asset(
+                "assets/frame.png",
+                width: double.infinity,
+                fit: BoxFit.cover,
+                height: double.infinity,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: context.getMediumPaddingSize(),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      "Account Balance",
+                      style: TextStyle(
+                        color: const Color(0xffffffff).withOpacity(0.8),
+                        fontSize: context.getBodyFontSize(),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      "GHC 10,000.00",
+                      style: TextStyle(
+                        color: const Color(0xffffffff),
+                        fontSize: context.getTextBalanceFontSize,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Checking Account",
+                          style: TextStyle(
+                            color: const Color(0xffffffff),
+                            fontSize: context.getBodySmallFontSize,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1.5,
+                          ),
+                        ),
+                        Text(
+                          "875431143137098707",
+                          style: TextStyle(
+                            color: const Color(0xffffffff).withOpacity(0.8),
+                            fontSize: context.getBodySmallFontSize,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
         Container(
           width: double.infinity,

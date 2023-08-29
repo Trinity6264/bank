@@ -28,6 +28,7 @@ extension BuildContextExtension on BuildContext {
   double get nameTextFontSize => 16.0;
   double get transactionTextFontSize => 18.0;
   double get textButtonFontSize => 14.0;
+  double get textBalanceFontSize => 36.0;
 
   double getBodyFontSize() {
     final Size(:height) = MediaQuery.of(this).size;
@@ -101,6 +102,20 @@ extension BuildContextExtension on BuildContext {
     }
 
     return transactionTextFontSize;
+  }
+  double get getTextBalanceFontSize {
+    final Size(:height) = MediaQuery.of(this).size;
+    if (height > 1080) {
+      return textBalanceFontSize * 1.3;
+    } else if (height > 720) {
+      return textBalanceFontSize * 1.2;
+    } else if (height > 640) {
+      return textBalanceFontSize * 1.1;
+    } else if (height > 360) {
+      return textBalanceFontSize * 1.0;
+    }
+
+    return textBalanceFontSize;
   }
 
   double getTextButtonFontSize() {
