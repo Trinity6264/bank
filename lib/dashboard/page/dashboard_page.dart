@@ -2,8 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bank/common/constant.dart';
 import 'package:bank/dashboard/components/custom_bottom_navbar.dart';
 import 'package:bank/dashboard/components/user_profile_header.dart';
+import 'package:bank/data/repository/data_repository.dart';
 import 'package:bank/routes/bank_auto_router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class DashBoardPage extends StatelessWidget {
@@ -11,6 +13,7 @@ class DashBoardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<DataRepository>().loadJsonData();
     return AutoTabsScaffold(
       appBarBuilder: (context, tabsRouter) {
         return PreferredSize(

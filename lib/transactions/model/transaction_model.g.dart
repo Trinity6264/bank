@@ -10,7 +10,7 @@ _$_TransactionModel _$$_TransactionModelFromJson(Map<String, dynamic> json) =>
     _$_TransactionModel(
       id: json['customerID'] as String,
       date: json['transactionDate'] as String,
-      amount: json['transactionAmount'] as String,
+      amount: json['transactionAmount'] as num,
       type: $enumDecode(_$TransactionTypeEnumMap, json['transactionDirection']),
       narration: json['transactionNarration'] as String,
     );

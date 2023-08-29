@@ -25,7 +25,7 @@ mixin _$TransactionModel {
   @JsonKey(name: "transactionDate")
   String get date => throw _privateConstructorUsedError;
   @JsonKey(name: "transactionAmount")
-  String get amount => throw _privateConstructorUsedError;
+  num get amount => throw _privateConstructorUsedError;
   @JsonKey(name: "transactionDirection")
   TransactionType get type => throw _privateConstructorUsedError;
   @JsonKey(name: "transactionNarration")
@@ -46,7 +46,7 @@ abstract class $TransactionModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "customerID") String id,
       @JsonKey(name: "transactionDate") String date,
-      @JsonKey(name: "transactionAmount") String amount,
+      @JsonKey(name: "transactionAmount") num amount,
       @JsonKey(name: "transactionDirection") TransactionType type,
       @JsonKey(name: "transactionNarration") String narration});
 }
@@ -82,7 +82,7 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as num,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -106,7 +106,7 @@ abstract class _$$_TransactionModelCopyWith<$Res>
   $Res call(
       {@JsonKey(name: "customerID") String id,
       @JsonKey(name: "transactionDate") String date,
-      @JsonKey(name: "transactionAmount") String amount,
+      @JsonKey(name: "transactionAmount") num amount,
       @JsonKey(name: "transactionDirection") TransactionType type,
       @JsonKey(name: "transactionNarration") String narration});
 }
@@ -140,7 +140,7 @@ class __$$_TransactionModelCopyWithImpl<$Res>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as num,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -174,7 +174,7 @@ class _$_TransactionModel implements _TransactionModel {
   final String date;
   @override
   @JsonKey(name: "transactionAmount")
-  final String amount;
+  final num amount;
   @override
   @JsonKey(name: "transactionDirection")
   final TransactionType type;
@@ -223,7 +223,7 @@ abstract class _TransactionModel implements TransactionModel {
   factory _TransactionModel(
       {@JsonKey(name: "customerID") required final String id,
       @JsonKey(name: "transactionDate") required final String date,
-      @JsonKey(name: "transactionAmount") required final String amount,
+      @JsonKey(name: "transactionAmount") required final num amount,
       @JsonKey(name: "transactionDirection")
       required final TransactionType type,
       @JsonKey(name: "transactionNarration")
@@ -240,7 +240,7 @@ abstract class _TransactionModel implements TransactionModel {
   String get date;
   @override
   @JsonKey(name: "transactionAmount")
-  String get amount;
+  num get amount;
   @override
   @JsonKey(name: "transactionDirection")
   TransactionType get type;

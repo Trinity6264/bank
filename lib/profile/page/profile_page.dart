@@ -157,6 +157,7 @@ class ProfilePage extends StatelessWidget {
                     iconPath: "assets/lock.svg",
                     title: "Change Account Password",
                     isHavingIcon: true,
+                    isLast: false,
                     onPressed: () {
                       context.pushRoute(const ResetPasswordPage());
                     },
@@ -166,8 +167,11 @@ class ProfilePage extends StatelessWidget {
                   params: (
                     iconPath: "assets/logout.svg",
                     title: "Logout",
+                    isLast: true,
                     isHavingIcon: true,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pushRoute(const LoginPage());
+                    },
                   ),
                 ),
                 Container(
@@ -190,6 +194,7 @@ class ProfilePage extends StatelessWidget {
                     iconPath: "assets/logout.svg",
                     title: "Terms and Conditions",
                     isHavingIcon: false,
+                    isLast: false,
                     onPressed: () {},
                   ),
                 ),
@@ -197,6 +202,7 @@ class ProfilePage extends StatelessWidget {
                   params: (
                     iconPath: "assets/logout.svg",
                     title: "Privacy Policy",
+                    isLast: false,
                     isHavingIcon: false,
                     onPressed: () {},
                   ),

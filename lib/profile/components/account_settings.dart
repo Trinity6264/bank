@@ -6,6 +6,7 @@ typedef AccountSettingsParams = ({
   String iconPath,
   String title,
   bool isHavingIcon,
+  bool isLast,
   void Function()? onPressed,
 });
 
@@ -18,7 +19,7 @@ class AccountSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (:iconPath, :title, :isHavingIcon,:onPressed) = params;
+    final (:iconPath, :title, :isHavingIcon, :onPressed, :isLast) = params;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -50,10 +51,12 @@ class AccountSettings extends StatelessWidget {
             ),
           ),
         ),
-        Divider(
-          color: const Color(0xFFE1E6F0).withOpacity(0.32),
-          thickness: 1.5,
-        ),
+        isLast
+            ? const SizedBox.shrink()
+            : Divider(
+                color: const Color(0xFFE1E6F0).withOpacity(0.32),
+                thickness: 1.5,
+              ),
       ],
     );
   }
