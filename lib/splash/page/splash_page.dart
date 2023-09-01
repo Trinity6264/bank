@@ -60,7 +60,7 @@ class _SplashPageState extends State<SplashPage>
               duration: const Duration(milliseconds: 300),
               scale: _scaleAnimation.value,
               child: Hero(
-                tag: "Play",
+                tag: "Played",
                 child: SvgPicture.asset("assets/Loading.svg"),
               ),
             );

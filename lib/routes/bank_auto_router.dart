@@ -9,8 +9,8 @@ class BankAutoRouter extends $BankAutoRouter {
 
   @override
   final routes = <AutoRoute>[
-    CustomFadeRoute(page: ResetPasswordPage.page),
     AutoRoute(page: LoginPage.page, initial: true),
+    CustomFadeRoute(page: ResetPasswordPage.page),
     CustomFadeRoute(page: ProfilePage.page),
     CustomFadeRoute(page: SplashPage.page),
     CustomFadeRoute(page: ForgotPasswordPage.page),

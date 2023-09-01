@@ -3,10 +3,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bank/common/constant.dart';
 import 'package:bank/common/transaction_card.dart';
 import 'package:bank/data/bloc/data_bloc.dart';
+import 'package:bank/home/components/loading_widget.dart';
 import 'package:bank/transactions/model/transaction_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -122,32 +122,34 @@ class HomePage extends StatelessWidget {
               return state.data?.transaction;
             },
             builder: (context, data) {
-              if (data == null) {
-                return Center(
-                    child: AnimatedScale(
-                  duration: const Duration(milliseconds: 300),
-                  scale: 0.5,
-                  child: Hero(
-                    tag: "Play",
-                    child: SvgPicture.asset("assets/Loading.svg"),
-                  ),
-                ));
-              }
-              return CustomScrollView(
-                slivers: [
-                  SliverList.separated(
-                    itemCount: data.length,
-                    separatorBuilder: (context, index) {
-                      return const Divider(
-                        color: Color(0xffedf0f6),
-                      );
-                    },
-                    itemBuilder: (context, index) {
-                      final model = data[index];
-                      return TransactionCard(transactionModel: model);
-                    },
-                  ),
-                ],
+              return AnimatedSwitcher(
+                duration: const Duration(seconds: 1),
+                child: data == null
+                    ? Center(
+                        child: LoadingWidget(
+                          onLoad: () {
+                            context
+                                .read<DataBloc>()
+                                .add(const DataEvent.onLoadData());
+                          },
+                        ),
+                      )
+                    : CustomScrollView(
+                        slivers: [
+                          SliverList.separated(
+                            itemCount: data.length,
+                            separatorBuilder: (context, index) {
+                              return const Divider(
+                                color: Color(0xffedf0f6),
+                              );
+                            },
+                            itemBuilder: (context, index) {
+                              final model = data[index];
+                              return TransactionCard(transactionModel: model);
+                            },
+                          ),
+                        ],
+                      ),
               );
             },
           ),

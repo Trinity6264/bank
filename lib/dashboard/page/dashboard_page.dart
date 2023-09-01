@@ -2,28 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bank/common/constant.dart';
 import 'package:bank/dashboard/components/custom_bottom_navbar.dart';
 import 'package:bank/dashboard/components/user_profile_header.dart';
-import 'package:bank/data/bloc/data_bloc.dart';
 import 'package:bank/routes/bank_auto_router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class DashBoardPage extends StatefulWidget {
+class DashBoardPage extends StatelessWidget {
   const DashBoardPage({super.key});
-
-  @override
-  State<DashBoardPage> createState() => _DashBoardPageState();
-}
-
-class _DashBoardPageState extends State<DashBoardPage> {
-  @override
-  void didChangeDependencies() {
-    if (mounted) {
-      
-      context.read<DataBloc>().add(const DataEvent.onLoadData());
-    }
-    super.didChangeDependencies();
-  }
 
   @override
   Widget build(BuildContext context) {

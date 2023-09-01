@@ -15,7 +15,7 @@ extension BuildContextExtension on BuildContext {
   double get smallPaddingSize => 8.0;
   double get mediumPaddingSize => 16.0;
   double get navbarIconSize => 32.0;
-  double get navbarHeightSize => 56.0;
+  double get navbarHeightSize => 50.0;
   double get appbarProfilePictureSize => 42.0;
 
 // ? Radius
@@ -89,6 +89,7 @@ extension BuildContextExtension on BuildContext {
 
     return nameTextFontSize;
   }
+
   double get getTransactionTextFontSize {
     final Size(:height) = MediaQuery.of(this).size;
     if (height > 1080) {
@@ -103,6 +104,7 @@ extension BuildContextExtension on BuildContext {
 
     return transactionTextFontSize;
   }
+
   double get getTextBalanceFontSize {
     final Size(:height) = MediaQuery.of(this).size;
     if (height > 1080) {
@@ -176,7 +178,6 @@ extension BuildContextExtension on BuildContext {
     }
     return mediumPaddingSize;
   }
-
 
   double get getAppbarProfilePictureSize {
     final Size(:height) = MediaQuery.of(this).size;
