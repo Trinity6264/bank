@@ -12,7 +12,8 @@ class BankAutoRouter extends $BankAutoRouter {
     CustomFadeRoute(page: ResetPasswordPage.page),
     AutoRoute(page: LoginPage.page, initial: true),
     CustomFadeRoute(page: ProfilePage.page),
-    AutoRoute(page: ForgotPasswordPage.page),
+    CustomFadeRoute(page: SplashPage.page),
+    CustomFadeRoute(page: ForgotPasswordPage.page),
     CustomFadeRoute(
       page: DashBoardPage.page,
       children: [

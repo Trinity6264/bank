@@ -19,6 +19,7 @@ class DataBloc extends Bloc<DataEvent, DataState> {
     Emitter<DataState> emit,
   ) async {
     try {
+      await Future.delayed(const Duration(seconds: 2));
       final resp = await repository.loadJsonData();
 
       return resp.when(

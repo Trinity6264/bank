@@ -60,14 +60,17 @@ class LoginPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             LoginEmailInput(),
-                            LoginPasswordInput(),
+                            Hero(
+                              tag: "play",
+                              child: LoginPasswordInput(),
+                            ),
                           ],
                         ),
                       ),
                       CustomRoundedButton(
                         text: "Login",
                         onPressed: () {
-                          context.replaceRoute(const DashBoardPage());
+                          context.pushRoute(const SplashPage());
                         },
                       ),
                     ],

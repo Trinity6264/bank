@@ -18,47 +18,50 @@ class CustomTextFieldInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: context.getMediumPaddingSize(),
-      ),
-      child: TextFormField(
-        onChanged: onChnaged,
-        keyboardType: textInputType,
-        textInputAction: textInputAction,
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          filled: true,
-          hintText: hintText,
-          errorText: errorText,
-          hintStyle: TextStyle(
-            color: const Color(0xff212121).withOpacity(0.6),
-            fontWeight: FontWeight.w400,
-            fontSize: context.getBodyFontSize(),
-            letterSpacing: 0.2,
-          ),
-          contentPadding: EdgeInsets.all(
-            context.getMediumPaddingSize(),
-          ),
-          fillColor: const Color(0xffF5F5F5),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              context.getMediumRadiusSize(),
+    return Material(
+      type: MaterialType.transparency,
+      child: Padding(
+        padding: EdgeInsets.only(
+          bottom: context.getMediumPaddingSize(),
+        ),
+        child: TextFormField(
+          onChanged: onChnaged,
+          keyboardType: textInputType,
+          textInputAction: textInputAction,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            filled: true,
+            hintText: hintText,
+            errorText: errorText,
+            hintStyle: TextStyle(
+              color: const Color(0xff212121).withOpacity(0.6),
+              fontWeight: FontWeight.w400,
+              fontSize: context.getBodyFontSize(),
+              letterSpacing: 0.2,
             ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              context.getMediumRadiusSize(),
+            contentPadding: EdgeInsets.all(
+              context.getMediumPaddingSize(),
             ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              context.getMediumRadiusSize(),
+            fillColor: const Color(0xffF5F5F5),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(
+                context.getMediumRadiusSize(),
+              ),
             ),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              context.getMediumRadiusSize(),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(
+                context.getMediumRadiusSize(),
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(
+                context.getMediumRadiusSize(),
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(
+                context.getMediumRadiusSize(),
+              ),
             ),
           ),
         ),

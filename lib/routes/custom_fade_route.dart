@@ -6,6 +6,7 @@ class CustomFadeRoute extends CustomRoute {
     required super.page,
     super.path,
     super.children,
+    
   }) : super(
           transitionsBuilder: (
             BuildContext context,

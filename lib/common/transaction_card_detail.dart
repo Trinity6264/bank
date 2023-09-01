@@ -16,7 +16,6 @@ class TransactionCardDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TransactionModel(
-      :amount,
       :date,
       :narration,
       :type,

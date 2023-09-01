@@ -19,6 +19,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
   @override
   void didChangeDependencies() {
     if (mounted) {
+      
       context.read<DataBloc>().add(const DataEvent.onLoadData());
     }
     super.didChangeDependencies();

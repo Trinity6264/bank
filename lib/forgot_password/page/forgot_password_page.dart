@@ -67,7 +67,10 @@ class ForgotPasswordPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            PasswordInput(),
+                            Hero(
+                              tag: "play",
+                              child: PasswordInput(),
+                            ),
                             ConfirmedPasswordInput(),
                           ],
                         ),

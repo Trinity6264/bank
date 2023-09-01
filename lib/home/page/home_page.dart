@@ -6,6 +6,7 @@ import 'package:bank/data/bloc/data_bloc.dart';
 import 'package:bank/transactions/model/transaction_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -123,10 +124,14 @@ class HomePage extends StatelessWidget {
             builder: (context, data) {
               if (data == null) {
                 return Center(
-                  child: CircularProgressIndicator.adaptive(
-                    backgroundColor: context.secondaryColor,
+                    child: AnimatedScale(
+                  duration: const Duration(milliseconds: 300),
+                  scale: 0.5,
+                  child: Hero(
+                    tag: "Play",
+                    child: SvgPicture.asset("assets/Loading.svg"),
                   ),
-                );
+                ));
               }
               return CustomScrollView(
                 slivers: [
