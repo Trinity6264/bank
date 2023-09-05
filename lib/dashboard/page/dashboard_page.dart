@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bank/common/constant.dart';
+import 'package:bank/dashboard/components/appbar_component.dart';
 import 'package:bank/dashboard/components/custom_bottom_navbar.dart';
-import 'package:bank/dashboard/components/user_profile_header.dart';
 import 'package:bank/routes/bank_auto_router.gr.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class DashBoardPage extends StatelessWidget {
               bottom: context.getMediumPaddingSize(),
               right: context.getMediumPaddingSize(),
             ),
-            child: const UserProfileHeader(),
+            child: const AppBarComponent(),
           ),
         );
       },

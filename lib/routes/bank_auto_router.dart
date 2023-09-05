@@ -18,14 +18,7 @@ class BankAutoRouter extends $BankAutoRouter {
       page: DashBoardPage.page,
       children: [
         AutoRoute(page: HomePage.page, initial: true),
-        AutoRoute(
-          page: TransactionPage.page,
-          children: [
-            AutoRoute(page: AllPage.page, initial: true),
-            CustomFadeRoute(page: DebitPage.page),
-            CustomFadeRoute(page: CreditPage.page),
-          ],
-        ),
+        AutoRoute(page: TransactionPage.page),
       ],
     ),
   ];

@@ -136,14 +136,9 @@ class HomePage extends StatelessWidget {
                       )
                     : CustomScrollView(
                         slivers: [
-                          SliverList.separated(
-                            itemCount: data.length,
-                            separatorBuilder: (context, index) {
-                              return const Divider(
-                                color: Color(0xffedf0f6),
-                              );
-                            },
-                            itemBuilder: (context, index) {
+                          SliverAnimatedList(
+                            initialItemCount: data.length,
+                            itemBuilder: (context, index, animation) {
                               final model = data[index];
                               return TransactionCard(transactionModel: model);
                             },

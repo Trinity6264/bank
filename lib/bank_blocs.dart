@@ -21,6 +21,7 @@ class BankBlocs extends StatelessWidget {
           BlocProvider<LoginBloc>(
             create: (context) => LoginBloc(),
           ),
+        
           BlocProvider<DataBloc>(
             create: (context) => DataBloc(context.read<DataRepository>()),
           ),

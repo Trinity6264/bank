@@ -45,6 +45,14 @@ class TransactionCard extends StatelessWidget {
         _showDraggableBottomSheet(context, transactionModel);
       },
       child: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: const Color(0xFFE1E6F0).withOpacity(0.6),
+              width: 1.5,
+            ),
+          ),
+        ),
         padding: EdgeInsets.all(context.getMediumPaddingSize()),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
